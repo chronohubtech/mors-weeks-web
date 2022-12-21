@@ -17,6 +17,21 @@ const weeksAliveArray = range(1, weeksAlive);
 
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">{weeksAlive} weeks alive</h1>
+    <main className={"container mx-auto max-w-[700px] py-10"}>
+      <h1 className="text-xl text-white pb-10 text-center">I'm {weeksAlive} Weeks Alive</h1>
+      <div className={"flex gap-4 flex-wrap"}>
+        {range(1, minWeeksOfLife).map((week) => {
+          const weeksFilled = weeksAliveArray[week] !== undefined;
+
+          return weeksFilled ? <span className={"filled"}></span> : null;
+        })}
+
+        {range(parseInt(weeksAlive), minWeeksOfLife).map((week) => {
+          const weeksFilled = weeksAliveArray[week] !== undefined;
+
+          return !weeksFilled ? <span className={"unfilled"}></span> : null;
+        })}
+      </div>
+    </main>
   );
 }

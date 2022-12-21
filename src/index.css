@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#111];
+  }
+}
+
+@layer components {
+  .filled {
+    @apply relative bg-green-500/20 border-2 border-green-500/40  w-4 h-4 aspect-square block rounded-full;
+  }
+
+  .filled:last-child {
+    @apply bg-red-500/100;
+  }
+
+  .unfilled {
+    @apply bg-green-500/0 border-2 border-green-500/30 w-4 h-4 aspect-square block rounded-full;
+  }
+
+  .live {
+    @apply bg-green-500/100 border-2 border-green-500/40  w-4 h-4 aspect-square block rounded-full;
+  }
+}
