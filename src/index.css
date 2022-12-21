@@ -30,6 +30,10 @@
 
   .live {
     box-shadow: 0 0 10px rgba(34, 197, 94, 1);
-    @apply bg-green-500/100 border-2 border-green-500/40  w-5 h-5 aspect-square block rounded-full;
+    @apply relative block bg-green-500/100 border-2 border-green-500/40  w-5 h-5 aspect-square block rounded-full;
+  }
+
+  .live:hover {
+    @apply animate-none;
   }
 }

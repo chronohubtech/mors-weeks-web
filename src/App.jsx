@@ -31,13 +31,16 @@ export default function App() {
       <div className={"flex gap-4 flex-wrap items-center"}>
         {range(0, parseInt(weeksAlive)).map((week) => {
           const currentWeek = week + 1 === parseInt(weeksAlive);
-          return (
-            <>
-              <span
-                className={`${currentWeek ? "live animate-pulse" : "filled"}`}
-                data-week={`${week + 1} ${week + 1 === 1 ? "week" : "weeks"}`}
-              ></span>
-            </>
+          return currentWeek ? (
+            <span
+              className={"live animate-pulse"}
+              data-week={`You are ${week + 1} weeks alive`}
+            ></span>
+          ) : (
+            <span
+              className={"filled"}
+              data-week={`${week + 1} ${week + 1 === 1 ? "week" : "weeks"}`}
+            ></span>
           );
         })}
 
