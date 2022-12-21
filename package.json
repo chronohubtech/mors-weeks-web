@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^8.0.1",
     "moment": "^2.29.4",
     "range": "^0.0.3",
     "react": "^18.0.0",
