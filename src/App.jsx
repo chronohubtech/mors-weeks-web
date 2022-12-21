@@ -18,10 +18,12 @@ const weeksAliveArray = range(1, weeksAlive);
 export default function App() {
   return (
     <main className={"container mx-auto max-w-[700px] py-10"}>
+      <div className={"fixed h-screen w-full top-0 left-0 z-50 bg-gradient-to-t from-black/60 via-black/10"}></div>
+
       <h1 className="text-xl text-white pb-10 text-center">
         I'm {weeksAlive} Weeks Alive
       </h1>
-      <div className={"flex gap-4 flex-wrap items-center justify-evenly"}>
+      <div className={"flex gap-4 flex-wrap items-center"}>
         {range(0, parseInt(weeksAlive)).map((week) => {
           const currentWeek = week + 1 === parseInt(weeksAlive);
           return (
