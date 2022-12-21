@@ -23,12 +23,12 @@ export default function App() {
       </h1>
       <div className={"flex gap-4 flex-wrap items-center justify-evenly"}>
         {range(0, parseInt(weeksAlive)).map((week) => {
-
-          if(week + 1 === parseInt(weeksAlive)) {
-            return <span className={"live animate-pulse"}></span>;
-          } else {
-            return <span className={"filled"}></span>;
-          }
+          const currentWeek = week + 1 === parseInt(weeksAlive);
+          return (
+            <span
+              className={`${currentWeek ? "live animate-pulse" : "filled"}`}
+            ></span>
+          );
         })}
 
         {range(parseInt(weeksAlive), minWeeksOfLife).map(() => {
