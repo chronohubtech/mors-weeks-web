@@ -1,4 +1,5 @@
 import moment from "moment";
+import { motion, AnimatePresence } from "framer-motion";
 import { range } from "range";
 
 const birthDate = new Date("July 26, 2002");
@@ -18,7 +19,11 @@ const weeksAliveArray = range(1, weeksAlive);
 export default function App() {
   return (
     <main className={"container mx-auto max-w-[700px] py-10"}>
-      <div className={"fixed h-screen w-full top-0 left-0 z-50 bg-gradient-to-t from-black/60 via-black/10"}></div>
+      <div
+        className={
+          "fixed h-screen w-full top-0 pointer-events-none left-0 z-50 bg-gradient-to-t from-black/60 via-black/10"
+        }
+      ></div>
 
       <h1 className="text-xl text-white pb-10 text-center">
         I'm {weeksAlive} Weeks Alive
@@ -27,9 +32,12 @@ export default function App() {
         {range(0, parseInt(weeksAlive)).map((week) => {
           const currentWeek = week + 1 === parseInt(weeksAlive);
           return (
-            <span
-              className={`${currentWeek ? "live animate-pulse" : "filled"}`}
-            ></span>
+            <>
+              <span
+                className={`${currentWeek ? "live animate-pulse" : "filled"}`}
+                data-week={`${week + 1} ${week + 1 === 1 ? "week" : "weeks"}`}
+              ></span>
+            </>
           );
         })}
 
