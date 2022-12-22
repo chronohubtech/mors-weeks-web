@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/auto-animate": "1.0.0-beta.5",
     "framer-motion": "^8.0.1",
     "moment": "^2.29.4",
     "range": "^0.0.3",
