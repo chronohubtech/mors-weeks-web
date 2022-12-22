@@ -14,19 +14,13 @@ const weeksAlive = intervalTime.asWeeks().toFixed(0);
 const minWeeksOfLife = 4500;
 const weeksLeftInYourLife = minWeeksOfLife - weeksAlive;
 
-const weeksAliveArray = range(1, weeksAlive);
-
 export default function App() {
   return (
-    <main className={"container mx-auto max-w-[700px] py-10"}>
-      <div
-        className={
-          "fixed h-screen w-full top-0 pointer-events-none left-0 z-50 bg-gradient-to-t from-black/60 via-black/10"
-        }
-      ></div>
+    <main className={"container mx-auto max-w-[1200px] py-10"}>
+      <div className="fixed h-screen w-full top-0 pointer-events-none left-0 z-50 bg-gradient-to-t from-black/60 via-black/10"></div>
 
       <h1 className="text-xl text-white pb-10 text-center">
-        I'm {weeksAlive} Weeks Alive
+        You're {weeksAlive} weeks alive, {weeksLeftInYourLife} weeks left.
       </h1>
       <div className={"flex gap-4 flex-wrap items-center"}>
         {range(0, parseInt(weeksAlive)).map((week) => {
@@ -34,12 +28,18 @@ export default function App() {
           return currentWeek ? (
             <span
               className={"live animate-pulse"}
-              data-week={`You are ${week + 1} weeks alive`}
+              data-week={`You are ${
+                week + 1
+              } weeks alive, you have ${weeksLeftInYourLife} weeks left.`}
             ></span>
           ) : (
             <span
               className={"filled"}
-              data-week={`${week + 1} ${week + 1 === 1 ? "week" : "weeks"}`}
+              data-week={`${week + 1} ${
+                week + 1 === 1
+                  ? "week, this is your first week on Earth."
+                  : "weeks"
+              }`}
             ></span>
           );
         })}
